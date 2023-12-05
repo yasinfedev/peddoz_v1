@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  </head>
+
+  <body id="sayfaBasi">
+    
+   <div class="container-fluid container-sm container-md container-lg container-xl">
+      <div class="row">
+      <div class="col-md-12 col-sm-12">
+      
+
+
+
+
+
+<div class="card">
+  <div class="card-header alert-danger">
+    Peddoz v1.0
+  </div>
+  
+  <div class="card-body alert-info">
+    <h5 class="card-title">Pediatrik hastada yaşa ve kiloya bağlı hesap modülü:</h5>
+    <p class="card-text" style="text-align: justify;"><small>UYARI: Buradaki bilgi ve değerler eğitim amaçlı ve tavsiye niteliğinde olup, hekim tedavisi ve gerçek ilaç dozları yerine geçmez. Hesaplamalarda meydana gelebilecek hatalardan dolayı yazılımcı/sayfa sahibi hiçbir hukuki sorumluluk kabul etmemektedirler.</small></p>
+
+    
+
+    <form class="form-group">
+        <table class="table">
+          <tr>
+            <td><label for="yas">Hasta yaşı:</label><small style="text-align: left;" id="bilgiNotu" class="form-text text-muted">Yıl olarak giriniz.</small></td>
+            <td><input type="number" class="form-control" id="yas"></td>
+            <td><label for="agirlik">Hasta ağırlığı:</label><small style="text-align: left;" id="bilgiNotu" class="form-text text-muted">Kg olarak giriniz.</small></td>
+            <td><input type="number" class="form-control" id="agirlik"><small id="birimNotu" class="form-text text-muted">kg</small></td>
+          </tr>
+           <tr>
+           
+            <td colspan="2"><button type="button" class="btn btn-primary btn-block" onclick="hesaplamalar()">HESAPLA</button>
+</td>
+            <td colspan="2"><input type="reset" value="TEMİZLE" class="btn btn-dark btn-block"></td>
+          </tr>
+    
+          <tr>
+            <td><label for="yuzeyAlani">Vücut yüzey alanı(m<sup>2</sup>):</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="yuzeyAlani"><small id="birimNotu" class="form-text text-muted">m<sup>2</sup></small></td>
+          </tr>
+
+           <tr>
+           
+            <td  colspan="4" class="alert alert-danger"><h6>SIVI TEDAVİSİ HESAPLAMALARI:</h6></td>
+          </tr>
+
+          <tr>
+            <td><label for="yukleme1">Akut yükleme:</label></td>
+            <td><input type="number" class="form-control" id="yukleme1"><small id="birimNotu" class="form-text text-muted">cc SF</small></td>
+            <td><label for="yukleme2">Saatlik miktar:</label></td>
+            <td><input type="number" class="form-control" id="yukleme2"><small id="birimNotu" class="form-text text-muted">cc/sa SF</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="idame1">İdame:</label></td>
+            <td><input type="number" class="form-control" id="idame1"><small id="birimNotu" class="form-text text-muted">cc/sa 1/3 izomix</small></td>
+            <td><label for="idame2">İdameye eklenecek KCl:</label></td>
+            <td><input type="number" class="form-control" id="ekKcl"><small id="birimNotu" class="form-text text-muted">mEq/L</small></td>
+          </tr>
+
+           <tr>
+           
+            <td colspan="4" class="alert alert-danger"><h6>ENDOTRAKEAL TÜP ÇAPI HESABI:</h6></td>
+          </tr>
+
+          <tr>
+            <td><label for="tupCap1">Kaflı tüp çapı:</label></td>
+            <td><input type="number" class="form-control" id="tupCap1"></td>
+            <td><label for="tupCap2">Kafsız tüp çapı</label></td>
+            <td><input type="number" class="form-control" id="tupCap2"></td>
+          </tr>
+
+          <tr>
+           
+            <td colspan="4" class="alert alert-danger"><h6>SIK KULLANILAN İLAÇ DOZLARI:</h6></td>
+          </tr>
+
+          <tr>
+            <td><label for="augmentin1">AUGMENTİN ŞURUP (50mg/kg/GÜN) - 2 dozda:</label></td>
+            <td><input type="number" class="form-control" id="augmentin1"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+            <td><label for="augmentin2">AUGMENTİN ŞURUP (80mg/kg/GÜN) - 2 dozda:</label></td>
+            <td><input type="number" class="form-control" id="augmentin2"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+          </tr>
+
+           <tr>
+            <td><label for="macrol1">MACROL ŞURUP (15mg/kg/GÜN) - 2 dozda:</label></td>
+            <td><input type="number" class="form-control" id="macrol1"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+            <td><label for="macrol2">MACROL ŞURUP (20mg/kg/GÜN) - 2 dozda:</label></td>
+            <td><input type="number" class="form-control" id="macrol2"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="nidazol1">NİDAZOL ŞURUP (30mg/kg/GÜN) - 3 dozda:</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="nidazol1"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="parolSurup">PAROL ŞURUP - 3 x:</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="parolSurup"><small id="birimNotu" class="form-text text-muted">ölçek</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="dolven1">DOLVEN ŞURUP - 3 x:</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="dolven1"><small id="birimNotu" class="form-text text-muted">ölçek</small></td>
+          </tr>
+
+           <tr>
+            <td><label for="cefaks1">CEFAKS SÜSPANSİYON (10mg/kg/GÜN) - 2 dozda:</label></td>
+            <td><input type="number" class="form-control" id="cefaks1"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+            <td><label for="cefaks2">CEFAKS SÜSPANSİYON (15mg/kg/GÜN) - 2 dozda:</label></td>
+            <td><input type="number" class="form-control" id="cefaks2"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="bactrim1">BACTRİM ŞURUP (40mg/kg/GÜN) - 2 x:</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="bactrim1"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+          </tr>
+
+            <tr>
+            <td><label for="parolIv1">PAROL İV FLAKON (1mL=10mg; 1 yaş altı veya 10kg altı):</label></td>
+            <td><input type="number" class="form-control" id="parolIv1"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+            <td><label for="parolIv2">PAROL İV FLAKON (10mg/ml; 1-10 yaş veya 10-33kg):</label></td>
+            <td><input type="number" class="form-control" id="parolIv2"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+          </tr>
+           <tr>
+            <td><label for="iesporIvim">İESPOR İV/İM FLAKON (25mg/kg/GÜN) - 2x:</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="iesporIvim"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+          </tr>
+
+        
+
+          <tr>
+            <td><label for="novalginAmp1">NOVALGİN AMPUL (2ml = 1gr):</label></td>
+            <td><input type="number" class="form-control" id="novalginAmp1"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+            <td><label for="novalginAmp2">NOVALGİN AMPUL (2ml = 1gr) Maksimum doz:</label></td>
+            <td><input type="number" class="form-control" id="novalginAmp2"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="avilAmp">AVİL AMPUL:</label></td>
+            <td colspan="3"><input type="text" class="form-control" id="avilAmp"><small id="birimNotu" class="form-text text-muted"></small></td>
+          </tr>
+
+          
+
+          <tr>
+            <td><label for="zoferAmp1">ZOFER AMPUL:</label></td>
+            <td><input type="number" class="form-control" id="zoferAmp1"><small id="birimNotu" class="form-text text-muted">mg</small></td>
+            <td><label for="zoferAmp2">ZOFER AMPUL:</label></td>
+            <td><input type="number" class="form-control" id="zoferAmp2"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="flagylFlk">FLAGYL FLAKON (30mg/kg/GÜN) - 3 dozda:</label></td>
+            <td colspan="3"><input type="number" class="form-control" id="flagylFlk"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+          </tr>
+
+          <tr>
+            <td><label for="ventolinFlk">VENTOLİN NEBUL (cc kadar SF ile sulandır):</label></td>
+            <td colspan="3"><input type="number" class="form-control"  id="ventolinFlk"><small id="birimNotu" class="form-text text-muted">cc</small></td>
+          </tr>
+
+
+        </table>
+
+
+    </form>
+     <a href="#sayfaBasi" class="btn btn-primary btn-block">Sayfa başına dön</a>
+
+
+    
+  </div>
+</div>
+      </div>
+
+
+
+    </div>
+   </div>
+  </body>
+</html>
