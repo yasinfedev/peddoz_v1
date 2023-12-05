@@ -1,0 +1,19 @@
+label {
+  font-size:0.9 rem;
+}
+
+small {
+  text-align: right;
+}
+
+td, label {
+  vertical-align: center;
+}
+
+h6 {
+  font-weight: bolder;
+}
+
+.form-control {
+  color: red;
+}
